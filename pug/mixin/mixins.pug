@@ -1,0 +1,18 @@
+mixin nestedList(list)
+  for item in list
+    li.navbar__item 
+      if item.link 
+        a(href=item.link) #{item.label}
+      else 
+        p #{item.label}
+        ul.sub-menu__list 
+          +nestedList(item.subMenu)
+
+mixin menuList(list) 
+  for item in list
+    li.mega-menu__item
+      h4.mega-menu-item__heading-title #{item.title}
+      ul.mega-menu-item__list 
+        for subItem in item.listItem 
+          li.mega-menu__sub-item
+            a(href=subItem.link) #{subItem.label}

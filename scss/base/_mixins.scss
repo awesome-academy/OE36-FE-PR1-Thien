@@ -1,0 +1,215 @@
+@mixin box($width, $height: $width) {
+  display: inline-block;
+  min-width: $width;
+  max-width: $width;
+  width: $width;
+  min-height: $height;
+  max-height: $height;
+  height: $height;
+}
+
+@mixin push-auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin flex($direction: row, $content: null, $items: null, $wrap: null) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  @include flex-direction($direction);
+  @include justify-content($content);
+  @include align-items($items);
+  @include flex-wrap($wrap);
+}
+
+@mixin flex-direction($direction) {
+  @if $direction==row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -moz-box-orient: horizontal;
+  } @else if $direction==column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+  } @else if $direction==column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -moz-box-orient: horizontal;
+  }
+
+  -webkit-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin justify-content($content) {
+  @if $content==flex-start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $content==flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $content==space-between {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $content==space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $content;
+    -moz-box-pack: $content;
+    -ms-flex-pack: $content;
+  }
+
+  -webkit-justify-content: $content;
+  justify-content: $content;
+}
+
+@mixin align-items($items) {
+  @if $items==flex-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  } @else if $items==flex-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $items;
+    -moz-box-align: $items;
+    -ms-flex-align: $items;
+  }
+
+  -webkit-align-items: $items;
+  align-items: $items;
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+
+  @if $wrap==nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $wrap;
+  }
+
+  flex-wrap: $wrap;
+}
+
+@mixin flex-basis($basis: auto) {
+  -webkit-flex-basis: $basis;
+  flex-basis: $basis;
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@mixin hover-element {
+  &:hover {
+    background-color: $color-yellow;
+    color: $color-white;
+  }
+}
+
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin media-query($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include media-query("medium", min) {
+    width: 750px;
+  }
+
+  @include media-query("large", min) {
+    width: 970px;
+  }
+
+  @include media-query("extra-large", min) {
+    width: 1170px;
+  }
+}
+
+@mixin background-image(
+  $img-uri,
+  $background-pos: center,
+  $background-repeat: no-repeat,
+  $size: auto
+) {
+  background: url($img-uri) $background-repeat $background-pos;
+  @include prefix(background-size, $size);
+}
+
+@mixin header-navbar-btn {
+  position: relative;
+  transition: 0.5s;
+  font-size: 18px;
+  border-left: 1px solid $color-mine-shaft;
+  border-right: 1px solid $color-mine-shaft;
+  @include box(70px);
+  @include media-query(medium, max) {
+    @include box(55px);
+  }
+
+  & > i {
+    @include centerer();
+    font-size: 18px;
+  }
+}
