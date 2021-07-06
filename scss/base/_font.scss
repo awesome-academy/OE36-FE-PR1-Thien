@@ -88,74 +88,13 @@
 }
 
 @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-black) format("truetype");
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-black-italic) format("truetype");
-    font-weight: 900;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-bold) format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-bold-italic) format("truetype");
-    font-weight: bold;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-light-italic) format("truetype");
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-regular) format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-medium-italic) format("truetype");
-    font-weight: 500;
-    font-style: italic;
-  }
+  font-family: "Arial-MT";
+  src: url($arial-mt-regular) format("truetype");
+  font-style: normal;
+}
 
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-light) format("truetype");
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-italic) format("truetype");
-    font-weight: normal;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: "Arial-MT";
-    src: url($arial-mt-medium) format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-  
+@font-face {
+  font-family: "Arial-MT";
+  src: url($arial-mt-italic) format("truetype");
+  font-style: italic;
+}

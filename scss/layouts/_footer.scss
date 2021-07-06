@@ -1,0 +1,212 @@
+footer {
+    font-family: 'Arial-MT';
+}
+
+.footer__top {
+    border-bottom: 1px solid $color-mercury;
+    padding: 60px 0;
+    @include container;
+
+    @include media-query(large, max) {
+        padding-top: 30px;
+        padding-bottom: 0;
+
+        .footer-top__item {
+            padding-bottom: 40px;
+        }
+    }
+}
+
+.footer-top__list {
+    @include flex(row, space-between, flex-start, wrap);
+
+    @include media-query(large, max) {
+        flex-direction: column;
+
+        &>.about-us {
+            width: 100% !important;
+        }
+    }
+}
+
+.about-us {
+    width: 25%;
+
+    &>div {
+        margin-bottom: 20px;
+        min-width: 40%;
+
+        &>i {
+            font-size: 18px;
+            width: 20px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.footer-top__item {
+    .item__title {
+        font-family: 'Roboto';
+        font-size: 16px;
+        margin-bottom: 35px;
+
+        &::before {
+            @include pseudo(inline-block, relative);
+            @include background-image($image-icon-title);
+            margin-right: 10px;
+            width: 10px;
+            height: 10px;
+            z-index: -1;
+        }
+    }
+
+    .description {
+        line-height: 20px;
+        margin-bottom: 35px;
+    }
+
+    .address {
+        @include flex();
+        line-height: 24px;
+    }
+
+    .subItem {
+        margin-bottom: 20px;
+        color: $color-dove-gray;
+        font-size: 13px;
+        font-weight: 400;
+
+        i {
+            width: 20px;
+        }
+    }
+}
+
+.payment-support {
+    margin: 30px auto;
+    @include container;
+    @include flex($wrap: wrap);
+
+    @include media-query(medium, max) {
+        @include flex-direction(column);
+    }
+
+    &>div {
+        flex-basis: 50%;
+        padding-right: 40px;
+        box-sizing: border-box;
+
+        & .title {
+            text-transform: none;
+            line-height: 24px;
+            font-weight: 400;
+        }
+    }
+}
+
+.payment {
+    @include media-query(medium, max) {
+        @include flex-grow(1);
+        max-width: 75%;
+        padding-bottom: 30px;
+    }
+
+    .payment__list {
+        @include flex($wrap: wrap);
+
+        .payment__item {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.support {
+    .content {
+        height: calc(100% - 24px);
+        @include flex(row, flex-start, center, wrap);
+
+        @include media-query(medium, max) {
+            @include align-items(flex-start);
+            @include flex-direction(column);
+        }
+    }
+
+    .support__item {
+        flex-basis: 50%;
+        font-size: 13px;
+        @include flex($items: center);
+
+        @include media-query(medium, max) {
+            padding-top: 25px;
+        }
+    }
+
+    .support-item__img {
+        @include box(60px);
+        position: relative;
+        color: $color-yellow;
+        border-radius: 50%;
+        border: 2px solid $color-yellow;
+        font-size: 24px;
+        box-sizing: border-box;
+
+        &>i {
+            @include centerer();
+        }
+    }
+
+    .support-item__content {
+        white-space: nowrap;
+        margin-left: 10px;
+
+        .item__hotline {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 18px;
+            color: $color-red;
+        }
+    }
+}
+
+.footer__bottom {
+    background-color: $color-black;
+}
+
+.footer-bottom__content {
+    min-height: 60px;
+    color: $color-silver;
+    @include container;
+    @include flex(row, space-between, center, wrap);
+
+    @include media-query(large, max) {
+        padding: 10px;
+        @include justify-content(center);
+    }
+
+    .copyright {
+        margin: 10px;
+        @include flex(row, center, center, wrap);
+
+        &>p {
+            @include flex;
+        }
+
+        b {
+            color: $color-white;
+        }
+    }
+
+
+    .bottom-nav__list {
+        @include flex($wrap: wrap);
+
+        @include media-query(large, max) {
+            @include justify-content(center);
+        }
+    }
+
+    .bottom-nav__item {
+        margin: 10px;
+    }
+}

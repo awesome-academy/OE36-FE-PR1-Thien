@@ -122,6 +122,14 @@
   flex-basis: $basis;
 }
 
+@mixin flex-grow($int: 1) {
+  -webkit-box-flex: $int;
+     -moz-box-flex: $int;
+ -webkit-flex-grow: $int;
+          -ms-flex: $int;
+         flex-grow: $int;
+}
+
 @mixin centerer($horizontal: true, $vertical: true) {
   position: absolute;
 
