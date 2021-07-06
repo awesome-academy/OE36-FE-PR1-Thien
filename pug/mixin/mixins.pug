@@ -4,7 +4,7 @@ mixin nestedList(list)
       if item.link 
         a(href=item.link) #{item.label}
       else 
-        p #{item.label}
+        span #{item.label}
         ul.sub-menu__list 
           +nestedList(item.subMenu)
 
@@ -16,3 +16,17 @@ mixin menuList(list)
         for subItem in item.listItem 
           li.mega-menu__sub-item
             a(href=subItem.link) #{subItem.label}
+
+mixin socialList(list, className)
+   each item in list
+      li(class=className)
+          a(href=item.link) 
+            i.fa(class=item.class)
+            if item.title
+              span #{item.title}
+
+mixin singleList(list, className) 
+  each item in list
+    li(class=className)
+        a(href=item.link)
+            p #{item.label}

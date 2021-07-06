@@ -1,0 +1,71 @@
+- const footerData = [ { "title":"Chính sách", "listItem": [ {"label": "Chính sách giao hàng", "link":"#"}, {"label": "Chính sách đổi sản phẩm", "link":"#"}, {"label": "Chính sách bảo hành", "link":"#"}, {"label": "Chính sách trả góp", "link":"#"}, {"label": "Giới thiệu hàng đổi trả", "link":"#"}, {"label": "Vân chuyển miễn phí", "link":"#"}, ] }, { "title":"Dịch vụ & hỗ trợ", "listItem": [ {"label": "Hệ thống cửa hàng", "link":"#"}, {"label": "Hướng dẫn mua hàng", "link":"#"}, {"label": "Hướng dẫn thanh toán", "link":"#"}, {"label": "Tích điểm đổi thưởng", "link":"#"}, {"label": "Dịch vụ đổi trả hàng", "link":"#"}, {"label": "Câu hỏi thường gặp", "link":"#"}, ] }, { "title":"Tin tức - sự kiện", "listItem": [ {"label": "Tin tức mới nhât", "link":"#"}, {"label": "Tin tức khuyến mại", "link":"#"}, {"label": "Tuyển dụng, đãi ngộ", "link":"#"}, {"label": "Download tài liệu", "link":"#"}, {"label": "Chương trình đối tác", "link":"#"}, {"label": "Nhà phát triển ứng dụng", "link":"#"}, ] },  ]
+- const paymentData = ["../assets/images/techcombank.png","../assets/images/vietinbank.png","../assets/images/vpbank.png","../assets/images/tienphongbank.png","../assets/images/maritimebank.png","../assets/images/dongabank.png","../assets/images/abbank.png","../assets/images/vietcapitalbank.png",]
+- const bottomMenuData = [{ "label": "Trang chủ", "link": "#" },{ "label": "Giới thiệu", "link": "#" }, { "label": "Sản phẩm", "link": "#" }, { "label": "Tin khuyến mại", "link": "#" }, { "label": "Dịch vụ", "link": "#" }, { "label": "Liên hệ", "link": "#" }]
+- const bottomSocial = [ {title: "Facebook", link:"#", class:"fa-facebook-f"}, {title: "Twitter", link:"#", class:"fa-twitter"}, {title: "Google", link:"#", class:"fa-google-plus"}, {title: "Skype", link:"#", class:"fa-skype"}, {title: "Instagram", link:"#", class:"fa-instagram"}, ]
+footer 
+    section.footer__top
+        ul.footer-top__list
+            li.footer-top__item.about-us
+                h4.item__title về chúng tôi
+                p.description Công ty Cổ phần Công nghệ DKT đã và đang khẳng định được vị trí hàng đầu trong lĩnh vực Thương mại điện tử
+                div.address 
+                    i.fa.fa-map-marker
+                    p
+                        |Tầng 4 - Tòa nhà Hanoi Group 442
+                        br
+                        |Đội Cấn Ba Đình - Hà Nội
+                div.email 
+                    i.fa.fa-envelope
+                    span support@dkt.com.vn
+                div.phone-number
+                    i.fa.fa-mobile
+                    span (84-4) 66558868  -  (84-4) 37868904
+            each item in footerData 
+                li.footer-top__item
+                    h4.item__title #{item.title}
+                    ul.item__list 
+                        +singleList(item.listItem,"subItem")
+                        
+            li.footer-top__item.connect 
+                h4.item__title Kết nối
+                ul.item__list 
+                    +socialList(bottomSocial,"subItem")
+    section.payment-support
+        div.payment
+            h6.title Thanh toán:
+            div.content
+                ul.payment__list
+                    for payment in paymentData
+                        li.payment__item
+                            img(src=payment, alt="bank")
+        div.support
+            h6.title Giải đáp nhanh:
+            div.content 
+                div.support__item
+                    div.support-item__img
+                        i.fa.fa-phone
+                    div.support-item__content
+                        span.item__title Tư vấn miễn phí (24/7)
+                        br
+                        span.item__hotline 1900 650 650
+                div.support__item
+                    div.support-item__img
+                        i.fa.fa-weixin
+                    div.support-item__content
+                        span.item__title Góp ý - phản hồi - thắc mắc
+                        br
+                        span.item__hotline 1900 650 650
+    section.footer__bottom 
+        div.footer-bottom__content
+            div.copyright 
+                p Bản quyền thuộc về 
+                    b &nbsp;Design Team.  
+                p &nbsp;Phát triển bởi 
+                    b &nbsp;Bizweb
+            nav.bottom__nav-bar
+                ul.bottom-nav__list
+                    each item in bottomMenuData
+                        li.bottom-nav__item
+                            a(href=item.link) #{item.label}  
+
+    

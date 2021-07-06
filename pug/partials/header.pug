@@ -3,24 +3,14 @@
 - const megaMenu = [ {title : "Máy khoan đa năng cnc", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy cắt plasmar", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy phay công nghiệp", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy ép nhựa thủ công", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, {title : "Máy uốn tôn điện", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, {title : "Máy nén khi cnc", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, ]
 - const megaMenuImage = "../assets/images/mega-menu-img.png"
 - const productList = [{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},]
+- const topSocial = [ {link:"#", class:"fa-facebook-f"},{ link:"#", class:"fa-google-plus"}, { link:"#", class:"fa-instagram"},  {link:"#", class:"fa-twitter"}, ]
 include ../mixin/mixins.pug
   
 header.header-top-wrap
     div.header-top 
         div.social
             ul.social__list 
-                li.social__item
-                    a(href="#") 
-                        i.fa.fa-facebook-f
-                li.social__item
-                    a(href="#") 
-                        i.fa.fa-google-plus
-                li.social__item
-                    a(href="#") 
-                        i.fa.fa-instagram
-                li.social__item
-                    a(href="#") 
-                        i.fa.fa-twitter
+                +socialList(topSocial, "social__item")
         div.account
             div.account__item 
                 span.register đăng ký
@@ -50,7 +40,7 @@ header.header-main
                 i.fa.fa-bars
             ul.navbar__list 
                 li.navbar__item 
-                    p Trang chủ 
+                    span Trang chủ 
                     div.header-navbar__mega-menu 
                         div.mega-menu__content
                             ul.mega-menu__list

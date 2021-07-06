@@ -74,6 +74,7 @@
 
 .header-main {
   position: sticky;
+  z-index: 100;
   top: 0;
 }
 
@@ -94,6 +95,7 @@
   }
 
   height: auto;
+  background-color: $color-white;
 
   .logo {
     @include flex-basis(25%);
@@ -101,15 +103,13 @@
   }
 
   .contact {
+    text-transform: uppercase;
+    font-family: 'Arial-MT';
     @include flex(row, space-between, stretch, nowrap);
-
+    @include flex-basis(45%);
     @include media-query(large, max) {
       display: none;
     }
-
-    @include flex-basis(45%);
-
-    text-transform: uppercase;
 
     .contact__item {
       padding: 0 30px;
@@ -127,7 +127,7 @@
     @include flex-basis(25%);
     position: relative;
 
-    .search-wrap::after {
+    .search-wrap::before {
       @include pseudo(block, absolute, "\f002");
       @include centerer(false, true);
       font-family: "FontAwesome";
@@ -192,6 +192,10 @@
 }
 
 .navbar__list {
+  @include media-query(large, max) {
+    display: none;
+  }
+  
   @include flex(row, space-between, center, nowrap);
 
   @include media-query(large, max) {
@@ -238,6 +242,7 @@
   font-size: 13px;
   background-color: $color-white;
   color: $color-black !important;
+  font-family: 'Arial-MT'!important;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 
   .navbar__item {
@@ -294,7 +299,6 @@
     margin-bottom: 15px;
     font-family: "Arial-MT";
     text-transform: none;
-    font-weight: 300;
 
     &::before {
       @include pseudo(inline, relative, "\f0da");
@@ -322,6 +326,7 @@
 
 .header-navbar__mega-menu {
   color: $color-gray;
+  background-color: $color-white;
   position: absolute;
   top: 100%;
   display: none;
