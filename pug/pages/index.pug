@@ -2,5 +2,103 @@ extends ../layout/layout.pug
 block header
   include ../partials/header
 block content
+  - const featuredProducts = [ { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, ]
+  - const newProducts = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_4.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_5.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_6.png", rate:4, numOfReview:12, price:"1.550.000", },]
+  - const topProducts = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }]
+  - const topProduct = { name: "Máy khoan black decker", imgSrc:"../assets/images/Layer_18.png", rate:4, numOfReview:12, price:"1.550.000", }
+  - const lastImport = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."},]
+  - const listBrand = [{src:"../assets/images/infiniteflame.png", alt:"infinite flame"}, {src:"../assets/images/artworkers.png", alt:"art workers"}, {src:"../assets/images/medialine.png", alt:"media line"}, {src:"../assets/images/techbrain.png", alt:"tech brain"}, {src:"../assets/images/mamolog.png", alt:"mamolog"}, ]
+  - const categories = ["Máy khoan", "Máy in 3D", "Máy CNC", "Máy tiện", "Máy khác"]
+  - const sidebar = ["Máy khoan, cắt CNC","Máy in phun khổ lớn", "Máy quét Cannon 3D","Máy hàn điện Alunima", "Máy khoan Decameta", "Máy phay đa năng CNC", "Máy mài, tiện DC 12V", "Máy khoan, cắt CNC", "Máy quay thông minh N3","Motor R34C đa dụng","Máy in laser màu 3D"]
+  main.home
+    section.slider(data-ride="carousel")
+        div.slider__carousel#slider__carousel
+          ul.carousel-indicators
+            each _, i in Array(3)
+              li.indicator(data-target="#slider__carousel", data-slide-to=i)
+          ul.carousel__list.carousel-inner
+            + carouselImage(true)
+            each _ in Array(2)
+              + carouselImage(false)
+        div.slider__content  
+          ul.content__list 
+            - const sliderList = [ {title: "Miễn phí vận chuyển", description: "Chúng tôi vận chuyển miễn phí với các đơn hàng trị giá trên 1.000.000 Đ.", class: "fa-plane"}, {title: "Chính sách đổi trả", description: "Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽđổi mới sản phẩm trong 7 ngày đầu tiên.", class: "fa-refresh"}, {title: "Khuyến mại hàng tuần", description: "Mỗi thứ 7 hàng tuần đều có chương trình giảmgiá và khuyến mại lớn.", class: "fa-gift"}, {title: "Cam kết hàng chính hãng", description: "Chúng tôi cam kết bán hàng chính hãng 100% với tất cả các loại sản phẩm.", class: "fa-thumbs-up"}, ]
+            each item in sliderList
+              li.content__item
+                div.item__icon
+                  i.fa(class=item.class)
+                div.content
+                  h4.item__title #{item.title}
+                  p.item__description #{item.description}
+
+    div.featured-products
+      + sectionHeader("Sản phẩm nổi bật",)
+      div.section-wrap
+        aside.section__sidebar 
+          nav 
+            ul.sidebar__list 
+              each item, index in sidebar
+                li.sidebar__item(class=index==0?"active":"") 
+                  a(href="#") #{item} 
+            i.fa.fa-angle-down
+        section.section__content
+          ul.product__list
+            each product in featuredProducts
+              + productItem(product)
+    
+    div.new-products
+      + sectionHeader("Sản phẩm mới",categories)
+      div.section-wrap
+        section.section__content
+          ul.product__list
+            each product in newProducts
+              + productItem(product)
+    
+    div.banner
+      div.sub-banner
+        img(src="../assets/images/banner2.jpg", alt="DEMISHI máy hàn xì chuyên nghiệp")
+      div.sub-banner
+        img(src="../assets/images/banner1.jpg", alt="MAKITA máy khoan - cắt đa năng")
+    
+    div.top-products
+      + sectionHeader("Sản phẩm bán chạy",categories)
+      div.section-wrap
+        section.section__content
+          ul.product__list
+            li.sub-list
+              ul.product__sub-list
+                each product in topProducts
+                  + productItem(product)
+            + productItem(topProduct)
+            li.sub-list
+              ul.product__sub-list
+                each product in topProducts
+                  + productItem(product)
+
+    div.banner
+        img(src="../assets/images/banner3.jpg", alt="ROCKET WOKARU máy cắt khoan đa năng tích hợp điều kiển từ xa")
+    
+    div.last-import 
+      + sectionHeader("Hàng mới về")
+      div.section-wrap
+        section.section__content
+          ul.product__list
+            each product in lastImport
+              + productItem(product)
+    section.brand 
+      div.brand__content 
+        i.fa.fa-angle-left
+        ul.brand__list 
+              each brand in listBrand
+                li.brand__item
+                  img(src=brand.src, alt=brand.alt)
+        i.fa.fa-angle-right
+    section.newsletter
+      div.newsletter__content
+        h5.newsletter__title Đăng kí để nhận tin tức khuyến mại hàng tuần
+        div.form-subscribe
+          input(type="text",placeholder="Nhập email của bạn..." )
+          button.btn.btn--yellow
+            span Đăng kí
 block footer
   include ../partials/footer

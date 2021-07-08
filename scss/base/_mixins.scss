@@ -136,20 +136,21 @@
   @if ($horizontal and $vertical) {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    @include prefix(transform, translate(-50%, -50%));
   } @else if ($horizontal) {
     left: 50%;
-    transform: translate(-50%, 0);
+    @include prefix(transform, translate(-50%, 0));
   } @else if ($vertical) {
     top: 50%;
-    transform: translate(0, -50%);
+    @include prefix(transform, translate(0, -50%));
   }
 }
 
 @mixin hover-element {
   &:hover {
-    background-color: $color-yellow;
-    color: $color-white;
+    background-color: $color-yellow !important;
+    color: $color-white !important;
+    border: 1px solid $color-yellow
   }
 }
 
@@ -177,6 +178,7 @@
 }
 
 @mixin container {
+  box-sizing: border-box;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -219,5 +221,16 @@
   & > i {
     @include centerer();
     font-size: 18px;
+  }
+}
+
+
+@mixin titleIcon($iconSrc:$image-icon-title) {
+  &::before {
+    @include pseudo(inline-block, relative);
+    @include background-image($iconSrc);
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
   }
 }
