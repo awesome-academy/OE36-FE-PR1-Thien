@@ -39,12 +39,12 @@ mixin carouselImage (active)
     li.carousel-item
       img(src="../assets/images/slider.jpg",width="750" ,height="500", alt='slider image')
 
-mixin productItem(product, action = true)
+mixin productItem(product, action = true, description = false)
   li.product__item 
     div.product__image
       img(src=product.imgSrc, alt=product.name)
     div.product__info
-      if !product.description
+      if !description
         div.product__price 
           span #{product.price} Đ
       div.product__name
@@ -59,7 +59,7 @@ mixin productItem(product, action = true)
           | (
           | #{product.numOfReview}
           | Đánh giá)
-      if product.description 
+      if description 
         p.product__description #{product.description}
         div.product__price 
           span #{product.price} Đ
