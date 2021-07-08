@@ -30,3 +30,58 @@ mixin singleList(list, className)
     li(class=className)
         a(href=item.link)
             p #{item.label}
+
+mixin carouselImage (active) 
+  if active 
+    li.carousel-item.active
+      img(src="../assets/images/slider.jpg",width="750" ,height="500", alt='slider image')
+  else
+    li.carousel-item
+      img(src="../assets/images/slider.jpg",width="750" ,height="500", alt='slider image')
+
+mixin productItem(product, action = true)
+  li.product__item 
+    div.product__image
+      img(src=product.imgSrc, alt=product.name)
+    div.product__info
+      if !product.description
+        div.product__price 
+          span #{product.price} Đ
+      div.product__name
+        h6 #{product.name}
+      div.product__rate 
+        div.rate 
+          each _ in Array(product.rate)
+            i.fa.fa-star
+          each _ in Array(5 -product.rate)
+            i.fa.fa-star-o
+        div.num-review 
+          | (
+          | #{product.numOfReview}
+          | Đánh giá)
+      if product.description 
+        p.product__description #{product.description}
+        div.product__price 
+          span #{product.price} Đ
+      if action
+        div.product__action
+          button.btn.btn--yellow
+            span mua ngay 
+          button.btn.btn--black   
+            span xem chi tiết
+
+mixin sectionHeader(title, categories)
+      header.section__title 
+        h2.header__title  #{title}
+        div.header__control
+          if categories
+            ul.categories 
+              each category in categories
+                li.categories__item
+                  button.btn.btn--white
+                    span #{category}
+          div.paging
+            button.btn.btn-prev.btn--black
+              i.fa.fa-caret-left 
+            button.btn.btn-next.btn--white
+              i.fa.fa-caret-right

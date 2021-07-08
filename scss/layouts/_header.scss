@@ -73,9 +73,19 @@
 }
 
 .header-main {
+  position: -webkit-sticky; 
   position: sticky;
+  background-color: $color-white;
   z-index: 100;
   top: 0;
+
+  @include media-query(large, max){
+    top: -120px;
+  }
+
+  @include media-query(small, max){
+    top: -200px
+  }
 }
 
 .header__content {
@@ -107,6 +117,7 @@
     font-family: 'Arial-MT';
     @include flex(row, space-between, stretch, nowrap);
     @include flex-basis(45%);
+
     @include media-query(large, max) {
       display: none;
     }
@@ -162,11 +173,11 @@
 
   .cart__number-product {
     position: absolute;
-    transform: translate(50%, -150%);
     border-radius: 50%;
     width: 22px;
     height: 22px;
     background-color: $color-yellow;
+    @include prefix(transform, translate(50%, -150%));
 
     span {
       @include centerer;
@@ -195,7 +206,7 @@
   @include media-query(large, max) {
     display: none;
   }
-  
+
   @include flex(row, space-between, center, nowrap);
 
   @include media-query(large, max) {
@@ -206,7 +217,7 @@
   text-transform: uppercase;
   height: 70px;
 
-  & > .navbar__item {
+  &>.navbar__item {
     border-right: 1px solid $color-mine-shaft;
   }
 }
@@ -242,8 +253,8 @@
   font-size: 13px;
   background-color: $color-white;
   color: $color-black !important;
-  font-family: 'Arial-MT'!important;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial-MT' !important;
+  @include prefix(box-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
 
   .navbar__item {
     position: relative;
@@ -270,8 +281,8 @@
   line-height: 1;
   padding: 0 30px;
   box-sizing: border-box;
-  transform: translateX(-30px);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  @include prefix(transform, translateX(-30px));
+  @include prefix(box-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
   @include flex(row, space-between, center, nowrap);
 
   .mega-menu__content {
@@ -285,14 +296,7 @@
   .mega-menu-item__heading-title {
     color: $color-mine-shaft;
     margin: 30px auto;
-
-    &::before {
-      @include pseudo(inline-block, relative);
-      @include background-image($image-icon-title);
-      width: 10px;
-      height: 10px;
-      margin-right: 10px;
-    }
+    @include titleIcon;
   }
 
   .mega-menu__sub-item {
@@ -341,7 +345,7 @@
   right: 0;
   color: $color-black;
   background-color: $color-white;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  @include prefix(box-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
 }
 
 .cart__list-product {
@@ -417,7 +421,7 @@
   }
 
   .btn {
-    transform: translateX(-100%);
+    @include prefix(transform, translateX(-100%));
     position: relative;
     left: 100%;
   }
