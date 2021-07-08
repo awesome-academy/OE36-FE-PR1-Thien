@@ -12,7 +12,9 @@
 // Import layouts styles
 @import "layouts/header";
 @import "layouts/footer";
+@import "layouts/sidebar";
 
 // Import pages styles
 @import "pages/index";
-@import "pages/error"
+@import "pages/error";
+@import "pages/product-grid" 
