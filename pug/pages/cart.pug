@@ -1,0 +1,50 @@
+extends ../layout/layout.pug
+block header
+  include ../partials/header
+block content
+    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Giỏ hàng",path:"#"},] 
+
+    + breadcrumbs(breadcrumbsData)
+    main.product-cart
+        div.cart__list-products
+            table 
+                thead 
+                    tr 
+                        th(width=96) stt 
+                        th(width=194) sản phẩm 
+                        th(width=291) thông tin 
+                        th(width=177) đơn giá
+                        th(width=112) số lượng
+                        th(width=177) thành tiền
+                        th(width=85) xóa
+                tbody 
+                    each _, i in Array(3)
+                        tr 
+                            td #{i+1}
+                            td 
+                                img(src="../assets/images/product_"+(i+1)+".png", alt="product image")
+                            td Máy khoan, cắt đa năng CNC
+                            td 2.350.00 Đ
+                            td 
+                                input(type="number", value=1, min=0)
+                            td 2.350.00 Đ
+                            td 
+                                    i.fa.fa-times
+
+        div.cart__bill
+            table.bill 
+                tr(height="60")  
+                    th(width="280") Tổng tiền 
+                    td(width="200") 6.850.000 Đ
+                tr(height="60") 
+                    th(width="280") Thuế(VAT)
+                    td(width="200") 0 Đ
+                tr(height="60") 
+                    th(width="280") Thanh toán 
+                    td(width="200") 6.850.000 Đ
+
+        div.cart__action 
+            a(href="#").btn.btn--black Tiếp tục mua hàng
+            a(href="#").btn.btn--yellow Thanh toán
+block footer
+  include ../partials/footer
