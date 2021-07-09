@@ -42,7 +42,7 @@
         }
 
         .num-review {
-            font-family: "Arial-MT";
+            font-family: $arial-mt;
             font-style: italic;
             font-size: 12px;
             color: $color-gray;
@@ -52,7 +52,7 @@
     .product__description {
         font-size: 13px;
         line-height: 15px;
-        font-family: "Arial-MT";
+        font-family: $arial-mt;
         color: $color-gray;
         margin-bottom: 10px;
     }

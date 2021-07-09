@@ -5,7 +5,7 @@ main>aside {
 
     max-width: 263px;
     width: 100%;
-    font-family: "Arial-MT";
+    font-family: $arial-mt;
 
     &>nav.product-sidebar {
         margin-bottom: 30px;
@@ -67,7 +67,7 @@ main>aside {
         }
 
         .sidebar__item {
-            font-family: "Arial-MT";
+            font-family: $arial-mt;
             font-style: italic;
             font-size: 13px;
             padding: 10px;

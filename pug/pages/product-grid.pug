@@ -30,10 +30,7 @@ block content
                 ul.grid__products 
                     each product in productData
                         + productItem(product)
-            div.paging
-                each page in pages
-                    button.btn.btn--white 
-                        | #{page}
+            + paging(pages)
         
 block footer
   include ../partials/footer

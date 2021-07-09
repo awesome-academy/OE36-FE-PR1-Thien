@@ -142,7 +142,7 @@
     .search-wrap::before {
       @include pseudo(block, absolute, "\f002");
       @include centerer(false, true);
-      font-family: "FontAwesome";
+      font-family: $awesome;
       color: $color-silver;
       font-size: 16px;
       right: 20px;
@@ -266,7 +266,7 @@
   .navbar__item::before {
     @include pseudo(inline, relative, "\f0da");
     color: inherit;
-    font-family: "FontAwesome";
+    font-family: $awesome;
     font-size: 12px;
     margin-right: 10px;
   }
@@ -302,13 +302,13 @@
 
   .mega-menu__sub-item {
     margin-bottom: 15px;
-    font-family: "Arial-MT";
+    font-family: $arial-mt;
     text-transform: none;
 
     &::before {
       @include pseudo(inline, relative, "\f0da");
       color: inherit;
-      font-family: "FontAwesome";
+      font-family: $awesome;
       font-size: 12px;
       margin-right: 10px;
     }
