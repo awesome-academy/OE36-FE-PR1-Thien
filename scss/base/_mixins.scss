@@ -260,10 +260,36 @@
 
 @mixin generateListColorClass {
   $list: ("red": $color-red, "yellow":$color-yellow, "silver":$color-silver, "black":$color-black, "blue":$color-blue );
-  $icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
   @each $class, $color in $list {
     .block-#{$class} {
       background-color: $color;
+    }
+  }
+}
+
+@mixin custom-checkbox-label {
+  label {
+    @include flex($items:center);
+    font-family: "Arial-MT";
+    font-style: italic;
+    color: $color-gray;
+
+    &::before {
+      @include pseudo(inline-block, relative);
+      @include box(15px);
+      margin-right: 10px;
+      border-radius: 3px;
+      background-color: $color-white-smoke;
+      border: 1px solid $color-gray-light;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked~label::before {
+      content: "\f00c";
+      font-family: "FontAwesome";
     }
   }
 }

@@ -33,31 +33,7 @@
 
     &>.input-subscribe {
         margin-bottom: 35px;
-
-        label {
-            @include flex($items:center);
-            font-family: "Arial-MT";
-            font-style: italic;
-            color: $color-gray;
-
-            &::before {
-                @include pseudo(inline-block, relative);
-                @include box(15px);
-                margin-right: 10px;
-                border-radius: 3px;
-                background-color: $color-white-smoke;
-                border: 1px solid $color-gray-light;
-            }
-        }
-
-        input {
-            display: none;
-
-            &:checked~label::before {
-                content: "\f00c";
-                font-family: "FontAwesome";
-            }
-        }
+        @include custom-checkbox-label;
     }
 }
 
@@ -65,6 +41,7 @@
     @include flex;
 
     .btn {
+        font-weight: 500;
         text-transform: uppercase;
         margin-right: 10px;
         padding: 10px 30px;

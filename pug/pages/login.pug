@@ -1,0 +1,31 @@
+extends ../layout/layout.pug
+block header
+  include ../partials/header
+block content
+    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Đăng nhập",path:"#"},] 
+
+    + breadcrumbs(breadcrumbsData)
+    main.login
+        div.login-form-wrap 
+            div.login-form
+                form
+                    h2.form__title Thông tin đăng nhập
+                    div.form__content 
+                        + form-input("input-name-login", "Họ và tên:", true, "text")
+                        + form-input("input-email-login", "Email:", true, "email")
+                        div.remember-login
+                            div.form__input
+                                input(id="input-remember", type="checkbox") 
+                                label(for="input-remember") Ghi nhớ đăng nhập
+                            a(href="#").forgot-password Bạn quên mật khẩu ?
+                    div.form__action
+                        button.btn.btn--black Đăng nhập 
+            div.register-nav
+                h2.title Bạn chưa có tài khoản?
+                div.content
+                    p Đăng ký tài khoản để mua hàng nhanh hơn. Theo giõi đơn đặt hàng, vận chuyển. 
+                    p Cập nhật các tin tức sự kiện và cấc chương trình giảm giá của chúng tôi
+                a(href="/register.html").btn.btn--yellow 
+                    span Đăng ký 
+block footer
+  include ../partials/footer
