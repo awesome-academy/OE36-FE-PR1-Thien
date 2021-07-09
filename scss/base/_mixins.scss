@@ -39,17 +39,23 @@
     -webkit-box-orient: horizontal;
     -moz-box-direction: reverse;
     -moz-box-orient: horizontal;
-  } @else if $direction==column {
+  }
+
+  @else if $direction==column {
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
     -moz-box-direction: normal;
     -moz-box-orient: vertical;
-  } @else if $direction==column-reverse {
+  }
+
+  @else if $direction==column-reverse {
     -webkit-box-direction: reverse;
     -webkit-box-orient: vertical;
     -moz-box-direction: reverse;
     -moz-box-orient: vertical;
-  } @else {
+  }
+
+  @else {
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
     -moz-box-direction: normal;
@@ -66,17 +72,25 @@
     -webkit-box-pack: start;
     -moz-box-pack: start;
     -ms-flex-pack: start;
-  } @else if $content==flex-end {
+  }
+
+  @else if $content==flex-end {
     -webkit-box-pack: end;
     -moz-box-pack: end;
     -ms-flex-pack: end;
-  } @else if $content==space-between {
+  }
+
+  @else if $content==space-between {
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
-  } @else if $content==space-around {
+  }
+
+  @else if $content==space-around {
     -ms-flex-pack: distribute;
-  } @else {
+  }
+
+  @else {
     -webkit-box-pack: $content;
     -moz-box-pack: $content;
     -ms-flex-pack: $content;
@@ -91,11 +105,15 @@
     -webkit-box-align: start;
     -moz-box-align: start;
     -ms-flex-align: start;
-  } @else if $items==flex-end {
+  }
+
+  @else if $items==flex-end {
     -webkit-box-align: end;
     -moz-box-align: end;
     -ms-flex-align: end;
-  } @else {
+  }
+
+  @else {
     -webkit-box-align: $items;
     -moz-box-align: $items;
     -ms-flex-align: $items;
@@ -110,7 +128,9 @@
 
   @if $wrap==nowrap {
     -ms-flex-wrap: none;
-  } @else {
+  }
+
+  @else {
     -ms-flex-wrap: $wrap;
   }
 
@@ -124,10 +144,10 @@
 
 @mixin flex-grow($int: 1) {
   -webkit-box-flex: $int;
-     -moz-box-flex: $int;
- -webkit-flex-grow: $int;
-          -ms-flex: $int;
-         flex-grow: $int;
+  -moz-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -ms-flex: $int;
+  flex-grow: $int;
 }
 
 @mixin centerer($horizontal: true, $vertical: true) {
@@ -137,10 +157,14 @@
     top: 50%;
     left: 50%;
     @include prefix(transform, translate(-50%, -50%));
-  } @else if ($horizontal) {
+  }
+
+  @else if ($horizontal) {
     left: 50%;
     @include prefix(transform, translate(-50%, 0));
-  } @else if ($vertical) {
+  }
+
+  @else if ($vertical) {
     top: 50%;
     @include prefix(transform, translate(0, -50%));
   }
@@ -197,12 +221,10 @@
   }
 }
 
-@mixin background-image(
-  $img-uri,
+@mixin background-image($img-uri,
   $background-pos: center,
   $background-repeat: no-repeat,
-  $size: auto
-) {
+  $size: auto) {
   background: url($img-uri) $background-repeat $background-pos;
   @include prefix(background-size, $size);
 }
@@ -214,11 +236,12 @@
   border-left: 1px solid $color-mine-shaft;
   border-right: 1px solid $color-mine-shaft;
   @include box(70px);
+
   @include media-query(medium, max) {
     @include box(55px);
   }
 
-  & > i {
+  &>i {
     @include centerer();
     font-size: 18px;
   }
@@ -232,5 +255,15 @@
     margin-right: 10px;
     width: 10px;
     height: 10px;
+  }
+}
+
+@mixin generateListColorClass {
+  $list: ("red": $color-red, "yellow":$color-yellow, "silver":$color-silver, "black":$color-black, "blue":$color-blue );
+  $icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
+  @each $class, $color in $list {
+    .block-#{$class} {
+      background-color: $color;
+    }
   }
 }

@@ -1,0 +1,45 @@
+extends ../layout/layout.pug
+block header
+  include ../partials/header
+block content
+    - var sidebarData = { productCategories: true, priceRanger: true, listColor: true, promotion: true, }
+    - const gridData = [ { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, ]
+    - const pages = ["Trang trước", "1", "2", "3", "Trang cuối"]
+    nav.breadcrumbs-wrap
+        ul.breadcrumbs
+            li 
+                a(href="/index.html") Trang chủ
+                i.fa.fa-caret-right
+            li 
+                a(href="#")  Danh mục sản phẩm
+
+    main.product-grid
+        aside.sidebar
+            include ../partials/sidebar.pug
+        section.products-view 
+            div.filter
+                form.filter__form
+                    div.sort-by.form__select
+                        label(for="sort-by") Sắp xếp theo:
+                        select#sort-by
+                            option(value="1") Tên sản phẩm 
+                    div.num-of-product.form__select
+                        label(for="num-of-product") Show:
+                        select#sort-by
+                            option(value="18") 18  
+                div.view-mode
+                    div.btn
+                        i.fa.fa-bars
+                    div.btn.active
+                        i.fa.fa-th
+            div.grid
+                ul.grid__products 
+                    each product in gridData
+                        + productItem(product)
+            div.paging
+                each page in pages
+                    button.btn.btn--white 
+                        | #{page}
+        
+block footer
+  include ../partials/footer

@@ -85,3 +85,12 @@ mixin sectionHeader(title, categories)
               i.fa.fa-caret-left 
             button.btn.btn-next.btn--white
               i.fa.fa-caret-right
+
+mixin sidebar-item(title, list, icon) 
+        h4.heading-title
+            i.fa(class="fa-"+icon)
+            | #{title}
+        ul.sidebar__list 
+            each item in list
+                li.sidebar__item
+                    a(href="#") #{item} 

@@ -1,0 +1,143 @@
+main>aside {
+    @include media-query(large, max) {
+        display: none;
+    }
+
+    max-width: 263px;
+    width: 100%;
+    font-family: "Arial-MT";
+
+    &>nav.product-sidebar {
+        margin-bottom: 30px;
+        border: 1px solid $color-gallery-transparent;
+        @include prefix(box-shadow, 0 1px 5px rgba(0, 0, 0, 0.05));
+    }
+
+    h4.heading-title {
+        font-weight: 600;
+        font-size: 13px;
+        padding: 22px 22px 22px 0;
+
+        &>i.fa {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    }
+
+    .news-categories h4.heading-title {
+        border-bottom: 1px solid $color-yellow;
+    }
+
+    .product-sidebar {
+        h4.heading-title {
+            font-weight: 400;
+            padding: 22px;
+            color: $color-yellow;
+            background-color: $color-black;
+            @include flex($items:center);
+        }
+    }
+
+    .sidebar__item {
+        padding: 22px;
+        font-size: 13px;
+        color: $color-gray;
+        border-top: 1px solid $color-gallery;
+        &:hover {
+            background-color: $color-gallery-transparent;
+        }
+    }
+
+    .pic-library,
+    .tags {
+        .sidebar__list {
+            @include flex(row, space-between, flex-start, wrap)
+        }
+
+        .sidebar__item {
+            margin-bottom: 7px;
+            border: none;
+            padding: 0;
+        }
+    }
+
+    .tags {
+        .sidebar__list {
+            @include justify-content(flex-start);
+        }
+
+        .sidebar__item {
+            font-family: "Arial-MT";
+            font-style: italic;
+            font-size: 13px;
+            padding: 10px;
+            margin: 0 7px 7px;
+            color: $color-gray;
+            border: 1px solid $color-gray;
+            @include flex($items: center);
+        }
+
+        .sidebar__item:hover {
+            color: $color-white;
+            background-color: $color-black;
+            border: 1px solid $color-black;
+        }
+    }
+
+    .product-categories,
+    .price-ranger {
+        .sidebar__item {
+            @include titleIcon($image-icon-title-gray);
+            @include flex($items: center);
+
+            &::before {
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .list-color {
+        .sidebar__item {
+            a {
+                @include flex($items: center);
+            }
+
+            span {
+                display: inline-block;
+                margin-right: 10px;
+                @include box(18px);
+            }
+        }
+
+        @include generateListColorClass;
+    }
+
+    .promotion {
+        font-family: Roboto;
+        font-weight: 500;
+
+        .sidebar__item {
+            padding: 22px 10px;
+
+            a {
+                @include flex($items: center);
+            }
+
+            img {
+                max-width: 80px;
+                width: 100%;
+                margin-right: 10px;
+            }
+
+            .product__name {
+                text-transform: uppercase;
+                color: $color-black;
+                margin-bottom: 10px;
+            }
+
+            .product__price {
+                color: $color-red;
+            }
+        }
+    }
+}
