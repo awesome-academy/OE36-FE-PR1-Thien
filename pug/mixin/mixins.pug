@@ -55,10 +55,7 @@ mixin productItem(product, action = true, description = false)
             i.fa.fa-star
           each _ in Array(5 -product.rate)
             i.fa.fa-star-o
-        div.num-review 
-          | (
-          | #{product.numOfReview}
-          | Đánh giá)
+        div.num-review (#{product.numOfReview} Đánh giá)
       if description 
         p.product__description #{product.description}
         div.product__price 
@@ -94,3 +91,11 @@ mixin sidebar-item(title, list, icon)
             each item in list
                 li.sidebar__item
                     a(href="#") #{item} 
+                    
+mixin breadcrumbs(breadcrumbsData) 
+  nav.breadcrumbs-wrap
+    ul.breadcrumbs
+        each breadcrumb in breadcrumbsData
+            li 
+                a(href=breadcrumb.path) #{breadcrumb.label}
+                i.fa.fa-caret-right

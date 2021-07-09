@@ -1,0 +1,29 @@
+.breadcrumbs-wrap {
+    padding: 30px 0;
+    @include container;
+}
+
+.breadcrumbs {
+    @include flex(row, flex-start, center);
+    font-family: "Arial-MT";
+    text-align: left;
+
+    li {
+        @include flex(row, flex-start, center);
+        color: $color-gray;
+        
+        &:last-child {
+            color: $color-black;
+            
+            i {
+                display: none;
+            }
+        }
+    }
+
+    i {
+        margin: 0 10px;
+        height: 12px;
+    }
+
+}

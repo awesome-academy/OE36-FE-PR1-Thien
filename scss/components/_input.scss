@@ -1,5 +1,10 @@
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     height: 50px;
     padding: 20px;
     border: 1px solid $color-mercury;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    @include prefix(appearance, none);
 }

@@ -8,3 +8,19 @@ body {
   width: 100%;
   color: $color-mine-shaft;
 }
+
+select {
+  box-sizing: border-box;
+  background-color: $color-white;
+  color: $color-gray;
+  height: 34px;
+  padding: 5px 20px 5px 10px;
+  outline: 0;
+  border: 1px solid $color-silver;
+  width: 100%;
+  @include prefix(appearance, none);
+
+  &::-ms-expand {
+      display: none;
+  }
+}
