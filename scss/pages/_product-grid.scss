@@ -52,6 +52,10 @@
             top: 40%;
             @include prefix(transform, translateY(-50%));
         }
+
+        label {
+            white-space: nowrap;
+        }
     }
 
     select {

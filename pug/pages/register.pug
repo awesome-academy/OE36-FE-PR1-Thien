@@ -1,0 +1,31 @@
+extends ../layout/layout.pug
+block header
+  include ../partials/header
+block content
+    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Đăng kí",path:"#"},] 
+
+    + breadcrumbs(breadcrumbsData)
+    main.register
+        form.register-form
+            section.personal-information
+                h2.form__title Thông tin cá nhân
+                div.form__content
+                    + form-input("input-name", "Họ và tên:", true, "text")
+                    + form-input("input-email", "Email:", true, "email")
+                    + form-input("input-phone", "Số điện thoại:", true, "number")
+                    + form-input("input-address", "Địa chỉ:", true, "text")
+                    div.form__input.input-subscribe
+                        input(id="input-subscribe", type="checkbox") 
+                        label(for="input-subscribe") Đăng ký nhận tin tức qua email
+            section.login-information
+                h2.form__title Thông tin đăng nhập 
+                div.form__content
+                    + form-input("input-name-login", "Họ và tên:", true, "text")
+                    + form-input("input-email-login", "Email:", true, "email")
+            section.form-action
+                button.btn.btn--black Quay lại
+                button.btn.btn--yellow Đăng kí
+            
+        
+block footer
+  include ../partials/footer
