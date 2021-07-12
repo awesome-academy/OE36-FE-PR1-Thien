@@ -1,0 +1,102 @@
+extends ../layout/layout.pug
+block header
+  include ../partials/header
+block content
+    - var sidebarData = { productCategories: true,  promotion: true}
+    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Danh mục sản phẩm",path:"./product-grid.html"}, {label:"Máy khoan CNC 3D",path:"#"},] 
+    - const suggestProducts = [ { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", },]
+    - var data = { name: "Máy khoan CNC 3D", rate: 4, numOfReview: 12, price: "2.350.000 Đ", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercition ullamco laboris nisi ut aliquip ex ea commodo consequat...", details: ["Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.","Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.", "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.", "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt."] , imgSrc: [] }
+    
+    + breadcrumbs(breadcrumbsData)
+    main.product
+        aside.sidebar
+            include ../partials/sidebar.pug
+        section.product-view 
+            section.product__detail
+                div.product__images
+                    div.product__images--main
+                        img(src="../assets/images/product-1.png", alt="product image")
+                    div.product__image--sub
+                        ul
+                            each _ , index in Array(5)
+                                li 
+                                    img(src="../assets/images/product_"+(index+1)+".jpg", alt="product image")
+                div.product__info
+                    div.product__name
+                        h6 #{data.name}
+                    div.product__rate
+                        div.rate 
+                            each _ in Array(data.rate)
+                                i.fa.fa-star
+                            each _ in Array(5 - data.rate)
+                                i.fa.fa-star-o
+                        div.num-review ( #{data.numOfReview} Đánh giá)
+                        div.separate |
+                        div.comment 
+                            a(href="#") Gửi bình luận của bạn
+                    div.product__price
+                        span GNY: #{data.price}
+                    div.product__description
+                        p.title Thông tin sản phẩm:
+                        p.content #{data.description}
+                    div.product__action
+                        div.action__select
+                            label(for="size") Size:
+                            br 
+                            div.select-wrap
+                                select#size(name="size")
+                                    option(value="-") - - Chọn size - -
+                        div.action__select
+                            label(for="color") Màu sắc: 
+                            br
+                            div.select-wrap
+                                select#color(name="color")
+                                    option(value="-") - - Chọn màu - -
+                    div.product__number
+                        div.input-wrap
+                            input(type="number", value=1, min=0)
+                            div.input-control 
+                                i.fa.fa-sort-asc
+                                i.fa.fa-sort-desc
+                        button.btn.btn--yellow  Mua ngay 
+                    div.product__share
+                        div.social 
+                            div.facebook
+                                i.fa.fa-facebook-official
+                                span Like
+                            div.num-count 0
+                            div.twitter
+                                i.fa.fa-twitter
+                                span Tweet
+                            div.google-plus
+                                i.fa.fa-google-plus
+                                span 1
+                            div.num-count 0
+                        div.share
+                            i.fa.fa-plus-square
+                            span Share
+                        
+            section.product__more-info 
+                ul.nav.nav-tabs
+                    li.nav-item 
+                        a.btn.btn--white.nav-link.active(data-toggle="tab", href="#tabs-1") Thông tin sản phẩm 
+                    li.nav-item 
+                        a.btn.btn--white.nav-link(data-toggle="tab", href="#tabs-2") Đánh giá - nhận xét
+                    li.nav-item 
+                        a.btn.btn--white.nav-link(data-toggle="tab", href="#tabs-3") Thẻ tags
+                    
+                div.tab-content
+                    div.tab-pane.active#tabs-1
+                        each paragraph in data.details 
+                            p #{paragraph}
+                    div.tab-pane#tabs-2     
+                        | REVIEWS
+                    div.tab-pane#tabs-3     
+                        | TAGS
+            section.suggestion
+                + sectionHeader("sản phẩm tương tự")
+                ul.product__list
+                    each product in suggestProducts
+                        + productItem(product)
+block footer
+  include ../partials/footer

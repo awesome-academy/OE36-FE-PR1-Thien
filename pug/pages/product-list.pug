@@ -3,15 +3,10 @@ block header
   include ../partials/header
 block content
     - var sidebarData = { productCategories: true, priceRanger: true, listColor: true, promotion: true, newsCategories: false, picLibrary: false, tags: false, }
+    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Danh mục sản phẩm",path:"#"},] 
     - const pages = ["Trang trước", "1", "2", "3", "Trang cuối"]
-    nav.breadcrumbs-wrap
-        ul.breadcrumbs
-            li 
-                a(href="/index.html") Trang chủ
-                i.fa.fa-caret-right
-            li 
-                a(href="#")  Danh mục sản phẩm
-
+    
+    + breadcrumbs(breadcrumbsData)
     main.product-list
         aside.sidebar
             include ../partials/sidebar.pug
