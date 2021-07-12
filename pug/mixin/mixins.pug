@@ -62,9 +62,9 @@ mixin productItem(product, action = true, description = false)
           span #{product.price} Đ
       if action
         div.product__action
-          button.btn.btn--yellow
+          a(href="#").btn.btn--yellow 
             span mua ngay 
-          button.btn.btn--black   
+          a(href=product.src).btn.btn--black 
             span xem chi tiết
 
 mixin sectionHeader(title, categories)
@@ -99,3 +99,11 @@ mixin breadcrumbs(breadcrumbsData)
             li 
                 a(href=breadcrumb.path) #{breadcrumb.label}
                 i.fa.fa-caret-right
+
+mixin form-input(name, label, required, type, placeholder)
+  div.form__input(class=name)
+    label(for=name) #{label}
+      if required
+        span *
+    br
+    input(id=name, type=type, placeholder=placeholder, required=required) 
