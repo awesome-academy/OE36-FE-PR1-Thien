@@ -1,12 +1,11 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Chi tiết sản phẩm"
+
 block content
-    - var sidebarData = { productCategories: true,  promotion: true}
-    - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Danh mục sản phẩm",path:"./product-grid.html"}, {label:"Máy khoan CNC 3D",path:"#"},] 
-    - const suggestProducts = [ { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", },]
-    - var data = { name: "Máy khoan CNC 3D", rate: 4, numOfReview: 12, price: "2.350.000 Đ", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercition ullamco laboris nisi ut aliquip ex ea commodo consequat...", details: ["Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.","Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.", "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.", "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt."] , imgSrc: [] }
-    
+    include ../mixin/section-header.pug
+    include ../data/product-details-data.pug
+
     + breadcrumbs(breadcrumbsData)
     main.product
         aside.sidebar
@@ -98,5 +97,3 @@ block content
                 ul.product__list
                     each product in suggestProducts
                         + productItem(product)
-block footer
-  include ../partials/footer

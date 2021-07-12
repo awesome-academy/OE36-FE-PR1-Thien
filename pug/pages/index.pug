@@ -1,21 +1,17 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Trang chủ"
+
 block content
-  - const featuredProducts = [ { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", }, ]
-  - const newProducts = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_4.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_5.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_6.png", rate:4, numOfReview:12, price:"1.550.000", },]
-  - const topProducts = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", }, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", }]
-  - const topProduct = { name: "Máy khoan black decker", imgSrc:"../assets/images/Layer_18.png", rate:4, numOfReview:12, price:"1.550.000", }
-  - const lastImport = [{ name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_2.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_3.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."}, { name: "Máy khoan black decker", imgSrc:"../assets/images/product_1.png", rate:4, numOfReview:12, price:"1.550.000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo..."},]
-  - const listBrand = [{src:"../assets/images/infiniteflame.png", alt:"infinite flame"}, {src:"../assets/images/artworkers.png", alt:"art workers"}, {src:"../assets/images/medialine.png", alt:"media line"}, {src:"../assets/images/techbrain.png", alt:"tech brain"}, {src:"../assets/images/mamolog.png", alt:"mamolog"}, ]
-  - const categories = ["Máy khoan", "Máy in 3D", "Máy CNC", "Máy tiện", "Máy khác"]
-  - const sidebar = ["Máy khoan, cắt CNC","Máy in phun khổ lớn", "Máy quét Cannon 3D","Máy hàn điện Alunima", "Máy khoan Decameta", "Máy phay đa năng CNC", "Máy mài, tiện DC 12V", "Máy khoan, cắt CNC", "Máy quay thông minh N3","Motor R34C đa dụng","Máy in laser màu 3D"]
+  include ../mixin/section-header.pug
+  include ../mixin/carousel-image.pug
+  include ../data/homepage-data.pug
   main.home
     section.slider(data-ride="carousel")
         div.slider__carousel#slider__carousel
           ul.carousel-indicators
-            each _, i in Array(3)
-              li.indicator(data-target="#slider__carousel", data-slide-to=i)
+            each _, index in Array(3)
+              li.indicator(data-target="#slider__carousel", data-slide-to=index)
           ul.carousel__list.carousel-inner
             + carouselImage(true)
             each _ in Array(2)
@@ -100,5 +96,3 @@ block content
           input(type="text",placeholder="Nhập email của bạn..." )
           button.btn.btn--yellow
             span Đăng kí
-block footer
-  include ../partials/footer

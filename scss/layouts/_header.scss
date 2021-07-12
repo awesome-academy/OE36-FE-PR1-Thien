@@ -74,17 +74,17 @@
 }
 
 .header-main {
-  position: -webkit-sticky; 
+  position: -webkit-sticky;
   position: sticky;
   background-color: $color-white;
   z-index: 100;
   top: 0;
 
-  @include media-query(large, max){
+  @include media-query(large, max) {
     top: -120px;
   }
 
-  @include media-query(small, max){
+  @include media-query(small, max) {
     top: -200px
   }
 }
@@ -212,6 +212,13 @@
 
   @include media-query(large, max) {
     display: none;
+  }
+
+  .navbar-item__link {
+    @include box(100%);
+    display: inline-block;
+    padding: 0 30px;
+    margin: 0 -30px;
   }
 
   border-left: 1px solid $color-mine-shaft;

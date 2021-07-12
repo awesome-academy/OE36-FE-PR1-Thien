@@ -1,6 +1,7 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Đăng ký"
+
 block content
     - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Đăng kí",path:"#"},] 
 
@@ -25,7 +26,3 @@ block content
             section.form-action
                 button.btn.btn--black Quay lại
                 button.btn.btn--yellow Đăng kí
-            
-        
-block footer
-  include ../partials/footer

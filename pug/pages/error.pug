@@ -1,6 +1,7 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Không tìm thấy kết quả"
+
 block content
     main.error-page
         div.error-page_content
@@ -11,5 +12,3 @@ block content
                 button.btn.btn--black Trang chủ
             div.image
                 img(src="../assets/images/Layer_18.png", alt="image")
-block footer
-  include ../partials/footer

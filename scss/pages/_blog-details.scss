@@ -73,18 +73,28 @@
         &>div {
             font-size: 12px;
 
+            & nav {
+                @include flex;
+            }
+
             .title {
                 font-family: $roboto;
                 text-transform: uppercase;
                 font-weight: 700;
                 line-height: 15px;
+                margin-right: 5px;
             }
         }
 
         .blog-tags {
+            ul {
+                @include flex;
+            }
+
             a {
                 display: inline-block;
                 height: 16px;
+                margin-right: 5px;
             }
 
             a:hover {
@@ -98,7 +108,6 @@
 
         .social__list {
             @include flex(row, flex-start, center, nowrap);
-            margin-left: 5px
         }
 
         .social__item {
@@ -219,6 +228,10 @@
             }
         }
 
+        .form__action {
+            text-transform: uppercase;
+            font-weight: 500;
+        }
     }
 
 }

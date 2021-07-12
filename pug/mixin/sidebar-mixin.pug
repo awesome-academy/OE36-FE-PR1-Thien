@@ -1,0 +1,8 @@
+mixin sidebar-item(title, list, icon) 
+    h4.heading-title
+        i.fa(class="fa-"+icon)
+        | #{title}
+    ul.sidebar__list 
+        each item in list
+            li.sidebar__item
+                a(href="#") #{item} 
