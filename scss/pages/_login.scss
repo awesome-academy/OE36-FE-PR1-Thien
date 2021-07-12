@@ -1,0 +1,70 @@
+.login-form-wrap {
+    padding-top: 30px;
+    border-top: 1px solid $color-mercury;
+    @include flex(row, space-between);
+    @include media-query(medium, max) {
+        @include flex-direction(column);
+        &>div {
+            width: 100% !important;
+        }
+
+        .login-form {
+            margin-bottom: 30px;
+        }
+    }
+
+    &>div {
+        width: calc((100% - 30px) / 2);
+    }
+
+    .login-form {
+        .form__content>.form__input {
+            width: 100%;
+        }
+    }
+
+    .remember-login {
+        @include flex(row, space-between, center);
+        @include custom-checkbox-label;
+        width: 100%;
+        margin-bottom: 35px;
+
+        .forgot-password {
+            font-style: italic;
+            text-decoration: underline;
+            color: $color-yellow;
+        }
+
+        label {
+            font-style: normal;
+        }
+    }
+
+    .form__action {
+        .btn {
+            padding: 15px 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+
+    .register-nav {
+        .title {
+            margin-bottom: 35px;
+        }
+
+        .content {
+            font-family: "Arial-MT";
+            color: $color-gray;
+            line-height: 24px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            width: fit-content;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+}
