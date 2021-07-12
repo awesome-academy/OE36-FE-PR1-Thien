@@ -1,0 +1,82 @@
+td,
+th {
+    border: 1px solid $color-mercury;
+    text-align: center;
+}
+
+.cart__list-products {
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid $color-mercury;
+
+    table {
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    th {
+        text-transform: uppercase;
+        padding: 20px 10px 30px;
+    }
+
+    td {
+        padding: 15px 10px;
+    }
+
+    td:nth-child(4),
+    td:nth-child(6) {
+        font-size: 18px;
+    }
+
+    td:last-child {
+        color: $color-red;
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    input {
+        @include box(40px);
+        text-align: center;
+        padding: 5px;
+    }
+}
+
+.cart__bill {
+    width: 100%;
+    margin-bottom: 20px;
+
+    table.bill {
+        position: relative;
+        left: 100%;
+        @include prefix(transform, translateX(-100%));
+    }
+
+    tr:last-child td {
+        color: $color-red;
+        font-size: 18px;
+    }
+
+    th,
+    td {
+        box-sizing: border-box;
+        text-transform: uppercase;
+        text-align: right;
+        padding-right: 10px;
+        font-weight: 500;
+    }
+}
+
+.cart__action {
+    @include flex(row, flex-end);
+
+    .btn {
+        text-transform: uppercase;
+        height: 55px;
+        font-weight: 500;
+        padding: 20px 30px;
+        margin-right: 10px;
+    }
+}
