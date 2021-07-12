@@ -110,13 +110,16 @@
         @include box(34px);
         position: relative;
         color: $color-gray;
-        margin-left: 5px;
         border: 1px solid $color-mercury;
 
         i {
             font-size: 18px;
             @include centerer;
         }
+    }
+
+    .btn:nth-child(2) {
+        margin-left: 5px;
     }
 
     .btn.active {

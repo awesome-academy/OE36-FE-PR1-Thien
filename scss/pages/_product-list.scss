@@ -1,0 +1,40 @@
+.product-list {
+    @include flex(row, space-between);
+
+    .product__item {
+        padding-bottom: 30px !important;  
+        margin-bottom: 30px !important;  
+        @include media-query(small, min){
+            @include flex-direction(row);
+        }
+    }
+
+    .product__image {
+        margin-right: 25px;
+        max-width: 180px;
+        width: 100%;
+        @include media-query(small, max){
+            @include push-auto;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+    .product__info {
+        @include align-items(flex-start);
+    }
+
+    .product__description {
+        text-align: left;
+    }
+
+    .product__action {
+        @include flex(row, flex-start !important);
+
+        .btn {
+            max-width: 112px;
+            width: 100%;
+        }
+    }
+}
