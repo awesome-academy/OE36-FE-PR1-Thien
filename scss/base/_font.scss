@@ -1,100 +1,100 @@
 @font-face {
-  font-family: "FontAwesome";
-  src: url($awesome) format("truetype");
+  font-family: $awesome;
+  src: url($font-awesome) format("truetype");
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-black) format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-black-italic) format("truetype");
   font-weight: 900;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-bold) format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-bold-italic) format("truetype");
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-light-italic) format("truetype");
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-regular) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-thin-italic) format("truetype");
   font-weight: 100;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-medium-italic) format("truetype");
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-thin) format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-light) format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-italic) format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: $roboto;
   src: url($roboto-medium) format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Arial-MT";
+  font-family: $arial-mt;
   src: url($arial-mt-regular) format("truetype");
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Arial-MT";
+  font-family: $arial-mt;
   src: url($arial-mt-italic) format("truetype");
   font-style: italic;
 }

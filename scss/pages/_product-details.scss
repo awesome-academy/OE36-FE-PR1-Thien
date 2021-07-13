@@ -91,7 +91,7 @@ main.product {
             }
 
             .product__rate {
-                font-family: "Arial-MT";
+                font-family: $arial-mt;
                 @include flex;
                 margin: 15px 0;
 
@@ -132,7 +132,7 @@ main.product {
                 }
 
                 .content {
-                    font-family: "Arial-MT";
+                    font-family: $arial-mt;
                     color: $color-gray;
                     font-size: 12px;
                 }
@@ -158,7 +158,7 @@ main.product {
 
                     &::before {
                         @include pseudo($content: "\f0dd");
-                        font-family: "FontAwesome";
+                        font-family: $awesome;
                         right: 10px;
                         top: 40%;
                         @include prefix(transform, translateY(-50%));
@@ -311,7 +311,7 @@ main.product {
             max-width: 850px;
             font-size: 13px;
             text-align: justify;
-            font-family: "Arial-MT";
+            font-family: $arial-mt;
             padding: 20px 35px 40px 20px;
             border: 1px solid $color-mercury;
             box-sizing: border-box;

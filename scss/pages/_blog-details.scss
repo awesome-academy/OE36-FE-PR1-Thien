@@ -1,0 +1,224 @@
+.blog-detail {
+    @include flex;
+
+    .blog-view {
+        box-sizing: border-box;
+        padding-left: 30px;
+        max-width: calc(100% - 263px);
+
+        @include media-query(large, max) {
+            padding-left: 0;
+            max-width: 100%;
+        }
+    }
+
+    .blog__image {
+        margin-bottom: 20px;
+        font-weight: 500;
+
+        img {
+            width: 100%;
+
+        }
+    }
+
+    .blog__title {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .blog__info {
+        margin-bottom: 15px;
+        @include blog-info;
+    }
+
+    .blog__content {
+        @include paragraph;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify
+        }
+
+        img {
+            @include push-auto;
+            display: block;
+            width: 80%;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .blog__footer {
+        font-family: $roboto
+    }
+
+    .blog__sharing {
+        border-bottom: 1px solid $color-mercury;
+        font-family: $arial-mt;
+        padding: 20px 0 50px;
+        @include flex(row, space-between, center, nowrap);
+
+        @include media-query(medium, max) {
+            @include flex(column, flex-start, flex-start);
+
+            .blog-tags {
+                margin-bottom: 15px;
+            }
+        }
+
+        &>div {
+            font-size: 12px;
+
+            .title {
+                font-family: $roboto;
+                text-transform: uppercase;
+                font-weight: 700;
+                line-height: 15px;
+            }
+        }
+
+        .blog-tags {
+            a {
+                display: inline-block;
+                height: 16px;
+            }
+
+            a:hover {
+                color: $color-yellow;
+            }
+        }
+
+        .share-blogs {
+            @include flex($items:center);
+        }
+
+        .social__list {
+            @include flex(row, flex-start, center, nowrap);
+            margin-left: 5px
+        }
+
+        .social__item {
+            @include box(32px);
+            @include hover-element;
+            position: relative;
+            font-size: 14px;
+            font-weight: 400;
+            border: solid 1px $color-mercury;
+            margin-left: 5px;
+
+            i {
+                @include centerer(true, true);
+            }
+        }
+    }
+
+    .comments {
+        padding-top: 40px;
+
+        &>.title {
+            margin-bottom: 40px;
+        }
+
+        .comment {
+            @include flex;
+
+            .comment__avatar {
+                max-width: 100px;
+                width: 100%;
+
+                @include media-query(medium, max) {
+                    max-width: 70px;
+                }
+
+                @include media-query(small, max) {
+                    max-width: 50px;
+                }
+
+                img {
+                    width: calc(100% - 10px);
+                    padding: 4px;
+                    line-height: 22px;
+                    border: 1px solid $color-mercury;
+                }
+            }
+
+            .comment__content {
+                margin-left: 20px;
+                padding: 5px 0;
+            }
+
+            .content__author {
+                text-transform: uppercase;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+
+            .comment-content-wrap {
+                position: relative;
+                font-family: $arial-mt;
+                font-style: italic;
+                font-size: 13px;
+                margin-bottom: 50px;
+            }
+
+            .content__post-time {
+                color: $color-silver-chalice;
+                margin-bottom: 15px;
+            }
+
+            .content__text {
+                color: $color-gray;
+            }
+
+            .content__action {
+                position: absolute;
+                right: 0;
+                top: 0;
+                border: 0;
+                outline: 0;
+                font-family: $arial-mt;
+                font-style: italic;
+                padding: 0;
+                text-decoration: underline;
+                background-color: $color-white;
+                color: $color-yellow;
+
+                @include media-query(small, max) {
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .comment-form {
+        border-top: 1px solid $color-mercury;
+
+        .form__title {
+            font-weight: 500;
+            margin-top: 40px;
+        }
+
+        .form__input {
+            width: calc((100% - 20px) / 2)
+        }
+
+        .input__comment {
+            width: 100%;
+
+            textarea {
+                box-sizing: border-box;
+                height: 160px;
+                margin: 20px 0 30px;
+                width: 100%;
+                outline: 0;
+                resize: none;
+            }
+        }
+
+    }
+
+}

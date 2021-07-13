@@ -5,7 +5,7 @@
 
 .breadcrumbs {
     @include flex(row, flex-start, center);
-    font-family: "Arial-MT";
+    font-family: $arial-mt;
     text-align: left;
 
     li {

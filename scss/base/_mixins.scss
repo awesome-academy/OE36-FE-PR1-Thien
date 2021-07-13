@@ -270,7 +270,7 @@
 @mixin custom-checkbox-label {
   label {
     @include flex($items:center);
-    font-family: "Arial-MT";
+    font-family: $arial-mt;
     font-style: italic;
     color: $color-gray;
 
@@ -289,7 +289,7 @@
 
     &:checked~label::before {
       content: "\f00c";
-      font-family: "FontAwesome";
+      font-family: $awesome;
     }
   }
 }

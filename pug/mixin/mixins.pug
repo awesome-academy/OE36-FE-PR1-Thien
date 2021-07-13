@@ -100,6 +100,14 @@ mixin breadcrumbs(breadcrumbsData)
                 a(href=breadcrumb.path) #{breadcrumb.label}
                 i.fa.fa-caret-right
 
+mixin paging(pages)
+  div.paging-wrap
+    nav
+        ul.paging
+            each page in pages
+                li
+                    button.btn.btn--white #{page}
+
 mixin form-input(name, label, required, type, placeholder)
   div.form__input(class=name)
     label(for=name) #{label}

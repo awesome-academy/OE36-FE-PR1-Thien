@@ -1,0 +1,98 @@
+.blog-list {
+    @include flex;
+
+    .sidebar,
+    .blogs-view {
+        padding-top: 30px;
+        border-top: 1px solid $color-mercury;
+    }
+
+    .blogs-view {
+        padding-left: 30px;
+        width: 100%;
+
+        @include media-query(large, max) {
+            padding-left: 0;
+        }
+
+        .blog__image {
+            margin-bottom: 20px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .blog__title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+
+        .blog__info {
+            margin: 15px 0;
+            font-size: 13px;
+            font-family: $arial-mt;
+            font-style: italic;
+            color: $color-silver-chalice;
+            @include flex;
+
+            @include media-query(small, max) {
+                @include flex-direction(column);
+
+                .author {
+                    margin: 8px 0 !important;
+                }
+            }
+
+            i.fa {
+                font-size: 14px;
+                margin-right: 5px;
+            }
+
+            .author {
+                margin: 0 25px 0 30px;
+            }
+
+            .author-name {
+                color: $color-yellow;
+            }
+        }
+
+        .blog__excerpt {
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            line-height: 18px;
+            font-size: 13px;
+            color: $color-gray;
+            font-family: $arial-mt;
+            border-bottom: 1px solid $color-mercury;
+
+            p {
+                display: inline;
+            }
+
+            a {
+                color: $color-yellow;
+            }
+        }
+    }
+
+    .paging {
+        @include flex($content: flex-end);
+
+        .btn {
+            font-size: 13px;
+            margin-left: 5px;
+            min-width: 40px;
+            @include flex($items:center);
+            border-color: $color-mercury;
+            color: $color-gray;
+
+            &:hover {
+                border-color: $color-yellow;
+                background-color: $color-yellow !important;
+            }
+        }
+    }
+}
