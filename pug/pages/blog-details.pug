@@ -1,0 +1,76 @@
+extends ../base/base
+prepend title
+    - var pageTitle = "Blog"
+
+block content
+    include ../data/blog-data.pug
+    include ../mixin/comment.pug
+    
+    + breadcrumbs(breadcrumbsData)
+    main.blog-detail
+        aside.sidebar
+            include ../partials/sidebar.pug
+        section.blog-view
+            article.blog
+                header
+                    div.blog__image
+                        img(src="../assets/images/blog_image_1.png", alt="Thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng")
+                    div.blog__title
+                        h2 Thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng
+                    div.blog__info
+                        div.post-time
+                            span Thứ năm, ngày 23/10/2015 8:00 AM
+                        div.author
+                            i.fa.fa-user
+                            span Đăng bởi 
+                            span.author__name Design Team
+                        div.comment-count
+                                i.fa.fa-weixin
+                                span 12 Bình luận
+                main.blog__content
+                    p But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                    p "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                    img(src="../assets/images/blog_image_2.png", alt="Thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng")
+                    p But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                    p "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                    img(src="../assets/images/blog_image_3.png", alt="Thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng")
+                    p But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                    p "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                    p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt
+                footer.blog__footer
+                    section.blog__sharing
+                        div.blog-tags
+                            nav
+                                h3.title Tags:    
+                                ul    
+                                    each tag, index in tagsList
+                                        li
+                                            if index < tagsList.length - 1
+                                                a(href="#") #{tag},
+                                            else
+                                                a(href="#") #{tag}...
+
+                        div.share-blogs
+                            span.title Chia sẻ:
+                            ul.social__list
+                                +socialList(social, "social__item")
+
+                    section.comments
+                        h4.title Bình luận:
+                        ul
+                            li
+                                + comment(true)
+                            li
+                                + comment
+                    section.comment-form
+                        form
+                            h4.form__title viết bình luận của bạn:
+                            div.form__content
+                                + form-input("name", "Họ và tên", true, "text")
+                                + form-input("email", "Email", true, "email")
+                                div.form__input.input__comment
+                                    label(for="comment") Bình luận
+                                    br
+                                    textarea#comment
+                            div.form__action
+                                button.btn.btn--yellow Gửi bình luận

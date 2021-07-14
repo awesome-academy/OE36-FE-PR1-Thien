@@ -293,3 +293,41 @@
     }
   }
 }
+
+@mixin blog-info {
+    font-size: 13px;
+    font-family: $arial-mt;
+    font-style: italic;
+    color: $color-silver-chalice;
+    @include flex;
+
+    @include media-query(small, max) {
+        @include flex-direction(column);
+
+        .author {
+            margin: 8px 0 !important;
+        }
+    }
+
+    i.fa {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .author {
+        margin: 0 25px 0 30px;
+    }
+
+    .author__name {
+        color: $color-yellow;
+    }
+}
+
+
+@mixin paragraph {
+  line-height: 18px;
+  font-size: 13px;
+  color: $color-gray;
+  font-family: $arial-mt;
+  border-bottom: 1px solid $color-mercury;
+}

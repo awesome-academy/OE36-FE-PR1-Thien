@@ -1,6 +1,7 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Đăng nhập"
+
 block content
     - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Đăng nhập",path:"#"},] 
 
@@ -27,5 +28,3 @@ block content
                     p Cập nhật các tin tức sự kiện và cấc chương trình giảm giá của chúng tôi
                 a(href="/register.html").btn.btn--yellow 
                     span Đăng ký 
-block footer
-  include ../partials/footer

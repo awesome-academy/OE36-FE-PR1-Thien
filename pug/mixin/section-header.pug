@@ -1,0 +1,15 @@
+mixin sectionHeader(title, categories)
+  header.section__title 
+    h2.header__title  #{title}
+    div.header__control
+      if categories
+        ul.categories 
+          each category in categories
+            li.categories__item
+              button.btn.btn--white
+                span #{category}
+      div.paging
+        button.btn.btn-prev.btn--black
+          i.fa.fa-caret-left 
+        button.btn.btn-next.btn--white
+          i.fa.fa-caret-right

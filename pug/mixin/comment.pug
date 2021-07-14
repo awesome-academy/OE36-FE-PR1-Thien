@@ -1,0 +1,14 @@
+mixin comment(reply=false) 
+  div.comment
+    div.comment__avatar
+        img(src="../assets/images/avatar.png", alt="avatar")
+    div.comment__content
+        p.content__author HOANG TRUONG ANH 
+        div.comment-content-wrap
+            p.content__post-time Thứ năm, ngày 23/10/2015 8:00 AM
+            p.content__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+            span.content__action Trả lời
+        if reply 
+          ul.comment-reply 
+            li.reply 
+                +comment

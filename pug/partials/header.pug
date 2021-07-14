@@ -1,10 +1,4 @@
-- const logoSrc = "../assets/images/logo.png"
-- const menuData = [{ "label" :"giới thiệu", "subMenu" : [ { "label" : "Giới thiệu chung", "link": "#" }, { "label" :"Hệ thống của hàng", "subMenu": [ {"label": "Hệ thống của hàng A", "link": "#"}, {"label": "Hệ thống của hàng A1", "link": "#"},{ "label": "Hệ thống của hàng A2", "link": "#"}, {"label": "Hệ thống của hàng A3", "link": "#"}, ]}, {"label" :"Chính sách ưu đãi", "link": "#"}, {"label" :"Thông tin tuyển dụng", "link": "#"}, ] }, {"label" :"sản phẩm", "link": "/product-grid.html"}, {"label" :"tin khuyến mại", "link": "#"}, {"label" :"dịch vụ", "link": "#"}, {"label" :"liên Hệ", "link": "#"}]
-- const megaMenu = [ {title : "Máy khoan đa năng cnc", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy cắt plasmar", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy phay công nghiệp", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, {label: "Máy ép gỗ chuẩn Nano", link: "#"}, ]}, {title : "Máy ép nhựa thủ công", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, {title : "Máy uốn tôn điện", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, {title : "Máy nén khi cnc", listItem: [ {label: "Máy khoan CNC điện", link: "#"}, {label: "Máy phay đa năng 3R", link: "#"}, {label: "Máy hàn, cắt kim loại", link: "#"}, {label: "Máy in phun tích điện", link: "#"}, ]}, ]
-- const megaMenuImage = "../assets/images/mega-menu-img.png"
-- const productList = [{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},{image: "../assets/images/product_1.png", name: "máy khoan black decker", quantity: '1', price: '1.250.000'},]
-- const topSocial = [ {link:"#", class:"fa-facebook-f"},{ link:"#", class:"fa-google-plus"}, { link:"#", class:"fa-instagram"},  {link:"#", class:"fa-twitter"}, ]
-  
+include ../mixin/header-mixin.pug
 header.header-top-wrap
     div.header-top 
         div.social
@@ -47,7 +41,7 @@ header.header-main
                         div.mega-menu__image
                             img(src=megaMenuImage, alt="mega menu image")
                 +nestedList(menuData)
-            div.cart
+            a(href="/cart.html").cart
                 i.fa.fa-shopping-basket 
                     div.cart__number-product 
                         span 0

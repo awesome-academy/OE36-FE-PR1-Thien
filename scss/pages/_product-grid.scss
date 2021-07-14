@@ -43,6 +43,10 @@
 
         &.sort-by {
             margin-right: 30px;
+
+            select {
+                padding-right: 50px;
+            }
         }
 
         &::before {

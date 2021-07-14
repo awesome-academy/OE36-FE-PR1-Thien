@@ -1,10 +1,10 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Danh sách sản phẩm"
+
 block content
-    - var sidebarData = { productCategories: true, priceRanger: true, listColor: true, promotion: true, newsCategories: false, picLibrary: false, tags: false, }
+    include ../data/product-data.pug
     - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Danh mục sản phẩm",path:"#"},] 
-    - const pages = ["Trang trước", "1", "2", "3", "Trang cuối"]
     
     + breadcrumbs(breadcrumbsData)
     main.product-list
@@ -28,9 +28,7 @@ block content
                         i.fa.fa-th
             div.list
                 ul.list__products 
-                    each product in productData
-                        + productItem(product, true, true)
+                    each product, index in productData
+                        if index < 9
+                            + productItem(product, true, true)
             + paging(pages)
-        
-block footer
-  include ../partials/footer

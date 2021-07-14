@@ -1,6 +1,7 @@
-extends ../layout/layout.pug
-block header
-  include ../partials/header
+extends ../base/base
+prepend title
+  - var pageTitle = "Giỏ hàng"
+
 block content
     - var breadcrumbsData = [{label:"Trang chủ", path:"./index.html"}, {label:"Giỏ hàng",path:"#"},] 
 
@@ -18,11 +19,11 @@ block content
                         th(width=177) thành tiền
                         th(width=85) xóa
                 tbody 
-                    each _, i in Array(3)
+                    each _, index in Array(3)
                         tr 
-                            td #{i+1}
+                            td #{index+1}
                             td 
-                                img(src="../assets/images/product_"+(i+1)+".png", alt="product image")
+                                img(src="../assets/images/product_"+(index+1)+".png", alt="product image")
                             td Máy khoan, cắt đa năng CNC
                             td 2.350.00 Đ
                             td 
@@ -46,5 +47,3 @@ block content
         div.cart__action 
             a(href="#").btn.btn--black Tiếp tục mua hàng
             a(href="#").btn.btn--yellow Thanh toán
-block footer
-  include ../partials/footer

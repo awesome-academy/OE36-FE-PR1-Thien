@@ -1,0 +1,5 @@
+mixin singleList(list, className) 
+  each item in list
+    li(class=className)
+        a(href=item.link)
+            p #{item.label}

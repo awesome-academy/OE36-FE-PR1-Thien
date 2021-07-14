@@ -1,5 +1,6 @@
 include ../mixin/mixins.pug
-include ../base/product-variables.pug
+include ../data/header-data.pug
+include ../data/footer-data.pug
 
 doctype html
 html(lang="vi")
@@ -7,12 +8,17 @@ html(lang="vi")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Project 1
         link(rel="shortcut icon", href="../../assets/images/logo.png", type="image/x-icon")
         link(rel="stylesheet", href="../../css/style.css")
         link(rel="stylesheet", href="../../assets/css/font-awesome.min.css")
+        block title
+            title #{pageTitle}
     body 
-        block layout
+        block header
+          include ../partials/header
+        block content
+        block footer
+          include ../partials/footer
         script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js") 
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js") 
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js") 

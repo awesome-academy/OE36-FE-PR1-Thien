@@ -1,21 +1,4 @@
-mixin nestedList(list)
-  for item in list
-    li.navbar__item 
-      if item.link 
-        a(href=item.link) #{item.label}
-      else 
-        span #{item.label}
-        ul.sub-menu__list 
-          +nestedList(item.subMenu)
-
-mixin menuList(list) 
-  for item in list
-    li.mega-menu__item
-      h4.mega-menu-item__heading-title #{item.title}
-      ul.mega-menu-item__list 
-        for subItem in item.listItem 
-          li.mega-menu__sub-item
-            a(href=subItem.link) #{subItem.label}
+include ./product-item.pug
 
 mixin socialList(list, className)
    each item in list
@@ -24,73 +7,6 @@ mixin socialList(list, className)
             i.fa(class=item.class)
             if item.title
               span #{item.title}
-
-mixin singleList(list, className) 
-  each item in list
-    li(class=className)
-        a(href=item.link)
-            p #{item.label}
-
-mixin carouselImage (active) 
-  if active 
-    li.carousel-item.active
-      img(src="../assets/images/slider.jpg",width="750" ,height="500", alt='slider image')
-  else
-    li.carousel-item
-      img(src="../assets/images/slider.jpg",width="750" ,height="500", alt='slider image')
-
-mixin productItem(product, action = true, description = false)
-  li.product__item 
-    div.product__image
-      img(src=product.imgSrc, alt=product.name)
-    div.product__info
-      if !description
-        div.product__price 
-          span #{product.price} Đ
-      div.product__name
-        h6 #{product.name}
-      div.product__rate 
-        div.rate 
-          each _ in Array(product.rate)
-            i.fa.fa-star
-          each _ in Array(5 -product.rate)
-            i.fa.fa-star-o
-        div.num-review (#{product.numOfReview} Đánh giá)
-      if description 
-        p.product__description #{product.description}
-        div.product__price 
-          span #{product.price} Đ
-      if action
-        div.product__action
-          a(href="#").btn.btn--yellow 
-            span mua ngay 
-          a(href=product.src).btn.btn--black 
-            span xem chi tiết
-
-mixin sectionHeader(title, categories)
-      header.section__title 
-        h2.header__title  #{title}
-        div.header__control
-          if categories
-            ul.categories 
-              each category in categories
-                li.categories__item
-                  button.btn.btn--white
-                    span #{category}
-          div.paging
-            button.btn.btn-prev.btn--black
-              i.fa.fa-caret-left 
-            button.btn.btn-next.btn--white
-              i.fa.fa-caret-right
-
-mixin sidebar-item(title, list, icon) 
-        h4.heading-title
-            i.fa(class="fa-"+icon)
-            | #{title}
-        ul.sidebar__list 
-            each item in list
-                li.sidebar__item
-                    a(href="#") #{item} 
                     
 mixin breadcrumbs(breadcrumbsData) 
   nav.breadcrumbs-wrap
